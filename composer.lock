@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfed46d3a949d3be6352cb295a1556ef",
+    "content-hash": "2e79863fc25b2c333ed492c528987ae7",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -1800,6 +1800,85 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "joaopaulolndev/filament-general-settings",
+            "version": "v1.0.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joaopaulolndev/filament-general-settings.git",
+                "reference": "dd22d9696d1e820292fbde2ef7f6d5d8019afec1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joaopaulolndev/filament-general-settings/zipball/dd22d9696d1e820292fbde2ef7f6d5d8019afec1",
+                "reference": "dd22d9696d1e820292fbde2ef7f6d5d8019afec1",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.15.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.9",
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^8.0",
+                "pestphp/pest": "^2.1",
+                "pestphp/pest-plugin-arch": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Joaopaulolndev\\FilamentGeneralSettings\\FilamentGeneralSettingsServiceProvider"
+                    ],
+                    "aliases": {
+                        "FilamentGeneralSettings": "Joaopaulolndev\\FilamentGeneralSettings\\Facades\\FilamentGeneralSettings"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Joaopaulolndev\\FilamentGeneralSettings\\": "src/",
+                    "Joaopaulolndev\\FilamentGeneralSettings\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "João Paulo Leite Nascimento",
+                    "email": "joaopauloln7@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Filament package to manage general settings",
+            "homepage": "https://github.com/joaopaulolndev/filament-general-settings",
+            "keywords": [
+                "filament-general-settings",
+                "joaopaulolndev",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/joaopaulolndev/filament-general-settings/issues",
+                "source": "https://github.com/joaopaulolndev/filament-general-settings"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/joaopaulolndev",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-07-02T09:32:03+00:00"
         },
         {
             "name": "kirschbaum-development/eloquent-power-joins",
