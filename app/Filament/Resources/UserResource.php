@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
+use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Pages\Page;
@@ -15,6 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Hash;
 use STS\FilamentImpersonate\Tables\Actions\Impersonate;
+
 
 class UserResource extends Resource
 {
@@ -54,13 +56,16 @@ class UserResource extends Resource
             ->actions([
                 Impersonate::make(),
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\Action::make('activities')
+                    ->url(fn ($record) => static::getUrl('activities', ['record' => $record]))
+                    ->icon('heroicon-o-clipboard-document-list')
             ]);
     }
 
     public static function getRelations(): array
     {
-        return [];
+        return [
+        ];
     }
 
     public static function getPages(): array
@@ -68,6 +73,7 @@ class UserResource extends Resource
         return [
             'index' => Pages\ListUsers::route('/'),
             'create' => Pages\CreateUser::route('/create'),
+            'activities' => Pages\ListUserActivities::route('/{record}/activities'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }

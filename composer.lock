@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71e09e3e8a750692a8127c0483bea368",
+    "content-hash": "dfed46d3a949d3be6352cb295a1556ef",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -4507,6 +4507,69 @@
                 "source": "https://github.com/bobthecow/psysh/tree/v0.12.4"
             },
             "time": "2024-06-10T01:18:23+00:00"
+        },
+        {
+            "name": "pxlrbt/filament-activity-log",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pxlrbt/filament-activity-log.git",
+                "reference": "37a083eddee1ee4017d71e9146cf4e7f5a7c8c3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pxlrbt/filament-activity-log/zipball/37a083eddee1ee4017d71e9146cf4e7f5a7c8c3b",
+                "reference": "37a083eddee1ee4017d71e9146cf4e7f5a7c8c3b",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0.5.0",
+                "php": "^8.0",
+                "spatie/laravel-activitylog": "^4.7"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "\\pxlrbt\\FilamentActivityLog\\FilamentActivityLogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "pxlrbt\\FilamentActivityLog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dennis Koch",
+                    "email": "info@pixelarbeit.de"
+                }
+            ],
+            "description": "Spatie's Laravel Activity Log integrated into Filament",
+            "keywords": [
+                "activity log",
+                "filament",
+                "laravel-filament"
+            ],
+            "support": {
+                "issues": "https://github.com/pxlrbt/filament-activity-log/issues",
+                "source": "https://github.com/pxlrbt/filament-activity-log/tree/v1.1.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/pxlrbt",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-07-01T10:18:10+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
