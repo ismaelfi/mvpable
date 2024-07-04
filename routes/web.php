@@ -17,7 +17,8 @@ Route::view('profile', 'profile')
 Route::middleware(['auth'])->group(function () {
     Route::get('/subscribe', [SubscriptionController::class, 'index'])->name('subscribe');
     Route::post('/checkout', [SubscriptionController::class, 'checkout'])->name('checkout');
-    Route::get('/billing-portal', [SubscriptionController::class, 'billingPortal'])->name('billing-portal');
+    Route::get('/billing-portal', [SubscriptionController::class, 'redirectToBillingPortal'])->name('billing-portal');
+
 });
 
 require __DIR__.'/auth.php';
