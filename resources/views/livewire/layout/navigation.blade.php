@@ -55,7 +55,7 @@ new class extends Component {
                 </li>
                 @if ($isSubscribed)
                     <li>
-                        <a href="{{ route('billing') }}" target="_blank">
+                        <a href="{{ route('billing-portal') }}" target="_blank">
                             Billing portal : Manage your subscription
                         </a>
                     </li>
