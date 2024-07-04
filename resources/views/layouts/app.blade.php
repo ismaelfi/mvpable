@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-base-100">
             <livewire:layout.navigation />
 
             <!-- Page Heading -->
@@ -28,10 +28,35 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 {{ $slot }}
             </main>
         </div>
         <x-impersonate::banner/>
+                <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeSwitcher = document.getElementById('theme-switcher');
+            const htmlElement = document.documentElement;
+
+            // themes
+            const lightTheme = 'bumblebee';
+            const darkTheme = 'forest';
+
+            const currentTheme = localStorage.getItem('theme') || lightTheme;
+            htmlElement.setAttribute('data-theme', currentTheme);
+            themeSwitcher.checked = currentTheme === darkTheme;
+
+            themeSwitcher.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    htmlElement.setAttribute('data-theme', darkTheme);
+                    localStorage.setItem('theme', darkTheme);
+                } else {
+                    htmlElement.setAttribute('data-theme', lightTheme);
+                    localStorage.setItem('theme', lightTheme);
+                }
+            });
+        });
+        </script>
+
     </body>
 </html>
