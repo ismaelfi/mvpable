@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Plan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SubscriptionController extends Controller
 {
@@ -25,9 +26,9 @@ class SubscriptionController extends Controller
         return redirect($checkoutSession->url);
     }
 
-    public function billingPortal(Request $request)
+    public function redirectToBillingPortal()
     {
-        $billingPortalSession = $request->user()->billingPortal();
-        return redirect($billingPortalSession->url);
+        $user = Auth::user();
+        return $user->redirectToBillingPortal(route('dashboard'));
     }
 }
