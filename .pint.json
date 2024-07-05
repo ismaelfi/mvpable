@@ -1,0 +1,18 @@
+{
+  "preset": "laravel",
+  "rules": {
+    "ordered_imports": false,
+    "no_unused_imports": false,
+    "blank_line_before_statement": false,
+    "method_chaining_indentation": false,
+    "trailing_comma_in_multiline": false,
+    "single_line_after_imports": false,
+    "class_attributes_separation": false,
+    "braces_position": false,
+    "class_definition": false,
+    "spaces_inside_parentheses": false,
+    "statement_indentation": false,
+    "no_whitespace_in_blank_line": false,
+    "single_quote": false
+  }
+}

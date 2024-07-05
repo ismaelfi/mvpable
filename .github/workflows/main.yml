@@ -1,0 +1,64 @@
+name: Build and Test Application
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 8.3
+        extensions: mbstring, pdo, pdo_sqlite, xml, bcmath
+        ini-values: |
+          memory_limit=512M
+        coverage: none
+
+    - name: Install Composer dependencies
+      run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.8.0'
+
+    - name: Install NPM dependencies
+      run: npm install
+
+    - name: Build assets
+      run: npm run build
+
+    - name: Set up SQLite
+      run: sudo apt-get install sqlite3 libsqlite3-dev
+
+    - name: Create SQLite database
+      run: touch database/database.sqlite
+
+    - name: Run database migrations
+      run: php artisan migrate --force
+
+    - name: Copy .env.example to .env
+      run: cp .env.example .env
+
+    - name: Generate application key
+      run: php artisan key:generate
+
+    # - name: Install Filament Blog
+    #   run: php artisan filament-blog:install
+
+    - name: Run Pint
+      run: ./vendor/bin/pint
+
+    - name: Run PHPUnit tests
+      run: vendor/bin/phpunit
