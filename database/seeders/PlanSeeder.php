@@ -2,17 +2,14 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Plan;
-
+use Illuminate\Database\Seeder;
 
 class PlanSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-
     public function run(): void
     {
         Plan::create([
@@ -20,7 +17,7 @@ class PlanSeeder extends Seeder
             'slug' => 'basic',
             'stripe_plan_id' => 'price_1234567890',
             'price' => 1000,
-            'description' => 'Basic plan'
+            'description' => 'Basic plan',
         ]);
 
         Plan::create([
@@ -28,7 +25,7 @@ class PlanSeeder extends Seeder
             'slug' => 'pro',
             'stripe_plan_id' => 'price_0987654321',
             'price' => 2000,
-            'description' => 'Pro plan'
+            'description' => 'Pro plan',
         ]);
 
     }
