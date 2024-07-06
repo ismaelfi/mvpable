@@ -3,15 +3,15 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PlanResource\Pages;
-use App\Filament\Resources\PlanResource\RelationManagers;
+// use App\Filament\Resources\PlanResource\RelationManagers;
 use App\Models\Plan;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+// use Illuminate\Database\Eloquent\Builder;
+// use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class PlanResource extends Resource
@@ -25,27 +25,27 @@ class PlanResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                ->required()
+                    ->required()
                     ->maxLength(255)
                     ->reactive()
                     ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state))),
                 Forms\Components\TextInput::make('slug')
-                ->required()
+                    ->required()
                     ->maxLength(255)
                     ->disabled(),
                 Forms\Components\TextInput::make('stripe_plan_id')
-                ->required()
+                    ->required()
                     ->maxLength(255)
                     ->helperText('This ID should be obtained from the Stripe dashboard.'),
                 Forms\Components\TextInput::make('price')
-                ->required()
+                    ->required()
                     ->numeric(),
                 Forms\Components\Repeater::make('features')
-                ->schema([
-                    Forms\Components\TextInput::make('feature_name'),
-                ]),
+                    ->schema([
+                        Forms\Components\TextInput::make('feature_name'),
+                    ]),
                 Forms\Components\Textarea::make('description')
-                ->maxLength(65535),
+                    ->maxLength(65535),
             ]);
     }
 
@@ -58,7 +58,7 @@ class PlanResource extends Resource
                 Tables\Columns\TextColumn::make('stripe_plan_id'),
                 Tables\Columns\TextColumn::make('price'),
                 Tables\Columns\TextColumn::make('created_at')
-                ->dateTime(),
+                    ->dateTime(),
             ])
             ->filters([
                 //

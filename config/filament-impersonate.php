@@ -1,8 +1,9 @@
 <?php
+
 return [
     // This is the guard used when logging in as the impersonated user.
     'guard' => env('FILAMENT_IMPERSONATE_GUARD', 'web'),
-    
+
     // After impersonating this is where we'll redirect you to.
     'redirect_to' => env('FILAMENT_IMPERSONATE_REDIRECT', '/'),
 
@@ -12,7 +13,7 @@ return [
     'banner' => [
         // Available hooks: https://filamentphp.com/docs/3.x/support/render-hooks#available-render-hooks
         'render_hook' => env('FILAMENT_IMPERSONATE_BANNER_RENDER_HOOK', 'panels::body.start'),
-    
+
         // Currently supports 'dark', 'light' and 'auto'.
         'style' => env('FILAMENT_IMPERSONATE_BANNER_STYLE', 'dark'),
 
@@ -33,6 +34,6 @@ return [
                 'background' => '#1f2937',
                 'border' => '#374151',
             ],
-        ]
+        ],
     ],
 ];

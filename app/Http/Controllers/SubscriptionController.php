@@ -11,6 +11,7 @@ class SubscriptionController extends Controller
     public function index()
     {
         $plans = Plan::all();
+
         return view('subscriptions.index', compact('plans'));
     }
 
@@ -29,6 +30,7 @@ class SubscriptionController extends Controller
     public function redirectToBillingPortal()
     {
         $user = Auth::user();
+
         return $user->redirectToBillingPortal(route('dashboard'));
     }
 }

@@ -1,11 +1,11 @@
 <div>
-    <div class="breadcrumbs text-sm">
+    <div class="text-sm breadcrumbs">
         <ul>
             <li><a>{{ __('Dashboard') }}</a></li>
         </ul>
     </div>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-md sm:rounded-lg">
                 <div class="p-6">
                     @if($subscribed)
