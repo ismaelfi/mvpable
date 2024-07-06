@@ -1,0 +1,14 @@
+#!/bin/sh
+# https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+
+phpFiles=$(git diff --cached --name-only --diff-filter=ACM -- '*.php')
+resourceFiles=$(git diff --cached --name-only --diff-filter=ACM -- resources/)
+
+# Sort Tailwind CSS classes
+rustywind --write resources/
+# Run Pint for style fixes
+vendor/bin/pint --dirty
+
+# Add changes from the above tools to the commit
+git add $phpFiles
+git add $resourceFiles
