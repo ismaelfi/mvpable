@@ -57,10 +57,10 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentGeneralSettingsPlugin::make()
-                ->setIcon('heroicon-o-cog')
-                ->setNavigationGroup('Settings')
-                ->setTitle('General Settings')
-                ->setNavigationLabel('General Settings'),
+                    ->setIcon('heroicon-o-cog')
+                    ->setNavigationGroup('Settings')
+                    ->setTitle('General Settings')
+                    ->setNavigationLabel('General Settings'),
             ]);
     }
 }
