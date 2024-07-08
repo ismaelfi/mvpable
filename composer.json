@@ -17,6 +17,7 @@
         "livewire/livewire": "^3.4",
         "livewire/volt": "^1.0",
         "pxlrbt/filament-activity-log": "^1.1",
+        "pxlrbt/filament-environment-indicator": "^2.0",
         "spatie/laravel-activitylog": "^4.8",
         "stechstudio/filament-impersonate": "^3.9"
     },

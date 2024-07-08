@@ -18,6 +18,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
+use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -61,6 +62,7 @@ class AdminPanelProvider extends PanelProvider
                     ->setNavigationGroup('Settings')
                     ->setTitle('General Settings')
                     ->setNavigationLabel('General Settings'),
+                EnvironmentIndicatorPlugin::make(),
             ]);
     }
 }
