@@ -5,7 +5,10 @@ use App\Http\Middleware\EnsureUserIsSubscribed;
 use App\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+Route::get('/', function () {
+    return redirect('/login');
+});
+
 Route::middleware(['auth'])->group(function () {   //EnsureUserIsSubscribed::class to middleware
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
 });
