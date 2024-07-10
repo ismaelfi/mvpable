@@ -17,7 +17,6 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Joaopaulolndev\FilamentGeneralSettings\FilamentGeneralSettingsPlugin;
 use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
 
 class AdminPanelProvider extends PanelProvider
@@ -57,11 +56,6 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugins([
-                FilamentGeneralSettingsPlugin::make()
-                    ->setIcon('heroicon-o-cog')
-                    ->setNavigationGroup('Settings')
-                    ->setTitle('General Settings')
-                    ->setNavigationLabel('General Settings'),
                 EnvironmentIndicatorPlugin::make(),
             ]);
     }
