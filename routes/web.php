@@ -24,4 +24,8 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
+Route::get('/sitemap.xml', function () {
+    return response()->file(public_path('sitemap.xml'));
+});
+
 require __DIR__.'/auth.php';
