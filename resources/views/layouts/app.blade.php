@@ -57,6 +57,6 @@
             });
         });
         </script>
-
+        @include('cookie-consent::index')
     </body>
 </html>
