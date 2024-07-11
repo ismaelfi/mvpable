@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "livewire/volt": "^1.0",
+        "propaganistas/laravel-disposable-email": "^2.4",
         "pxlrbt/filament-activity-log": "^1.1",
         "pxlrbt/filament-environment-indicator": "^2.0",
         "spatie/laravel-activitylog": "^4.8",
