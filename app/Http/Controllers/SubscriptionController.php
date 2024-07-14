@@ -11,8 +11,16 @@ class SubscriptionController extends Controller
     public function index()
     {
         $plans = Plan::all();
+        $user = Auth::user();
+        $currentPlan = null;
+        $hasActiveSubscription = false;
 
-        return view('subscriptions.index', compact('plans'));
+        if ($user->subscribed('default')) {
+            $hasActiveSubscription = true;
+            $currentPlan = $user->subscription('default')->stripe_price;
+        }
+
+        return view('subscriptions.index', compact('plans', 'currentPlan', 'hasActiveSubscription'));
     }
 
     public function checkout(Request $request)
@@ -25,6 +33,24 @@ class SubscriptionController extends Controller
         ]);
 
         return redirect($checkoutSession->url);
+    }
+
+    public function swap(Request $request)
+    {
+        $plan = Plan::findOrFail($request->plan);
+        $user = Auth::user();
+
+        if ($user->subscribed('default')) {
+            try {
+                $user->subscription('default')->swap($plan->stripe_plan_id);
+
+                return redirect()->route('subscribe')->with('success', 'Your subscription has been updated to '.$plan->name.'.');
+            } catch (Exception $e) {
+                return redirect()->route('subscribe')->with('error', 'There was an error updating your subscription: '.$e->getMessage());
+            }
+        }
+
+        return redirect()->route('subscribe')->with('error', 'You don\'t have an active subscription.');
     }
 
     public function redirectToBillingPortal()

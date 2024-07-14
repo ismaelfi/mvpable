@@ -30,11 +30,24 @@
                                 </ul>
                             @endif
                             <div class="justify-end mt-6 card-actions">
-                                <form action="{{ route('checkout') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="plan" value="{{ $plan->id }}">
-                                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                                </form>
+                                @if(!$hasActiveSubscription)
+                                    <form action="{{ route('checkout') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="plan" value="{{ $plan->id }}">
+                                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                                    </form>
+                                @elseif($currentPlan == $plan->stripe_plan_id)
+                                    <button class="btn btn-disabled">Current Plan</button>
+                                @else
+                                        <button class="btn btn-secondary" onclick="showSwapModal('{{ $plan->id }}', '{{ $plan->name }}', {{ $plan->price }})">
+                                            @php
+                                                $currentPlan = auth()->user()->subscription('default')->stripe_price;
+                                                $currentPlanPrice = \App\Models\Plan::where('stripe_plan_id', $currentPlan)->first()->price;
+                                            @endphp
+                                            {{ $plan->price > $currentPlanPrice ? 'Upgrade' : 'Downgrade' }}
+                                        </button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -42,4 +55,31 @@
             </div>
         </div>
     </div>
+    <!-- Swap Confirmation Modal -->
+    <dialog id="swap_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <h3 class="text-lg font-bold">Confirm Plan Change</h3>
+            <p class="py-4">Are you sure you want to switch to the <span id="new_plan_name"></span> plan?</p>
+            <p>New price: $<span id="new_plan_price"></span>/month</p>
+            <div class="modal-action">
+                <form action="{{ route('swap') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="plan" id="new_plan_id">
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                </form>
+                <form method="dialog">
+                    <button class="btn">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <script>
+        function showSwapModal(planId, planName, planPrice) {
+            document.getElementById('new_plan_id').value = planId;
+            document.getElementById('new_plan_name').textContent = planName;
+            document.getElementById('new_plan_price').textContent = planPrice;
+            swap_modal.showModal();
+        }
+    </script>
 </x-app-layout>
