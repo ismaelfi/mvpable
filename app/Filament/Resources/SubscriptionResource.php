@@ -3,13 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SubscriptionResource\Pages;
+use App\Models\Subscription;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Laravel\Cashier\Subscription;
 
 class SubscriptionResource extends Resource
 {
@@ -56,6 +56,7 @@ class SubscriptionResource extends Resource
                         'warning' => 'past_due',
                     ]),
                 TextColumn::make('stripe_price')->sortable(),
+                TextColumn::make('amount')->sortable(),
                 TextColumn::make('quantity')->sortable(),
                 TextColumn::make('trial_ends_at')->dateTime(),
                 TextColumn::make('ends_at')->dateTime(),

@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Filament\Pages\ManageSettings;
+use App\Models\Subscription;
 use Filament\Facades\Filament;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Cashier\Cashier;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        Cashier::useSubscriptionModel(Subscription::class);
         Filament::registerPages([
             ManageSettings::class,
         ]);
