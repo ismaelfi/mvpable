@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +12,7 @@ use Laravel\Cashier\Billable;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser, MustVerifyEmail
 {
     use Billable;
     use HasFactory, LogsActivity, Notifiable;
@@ -57,9 +59,8 @@ class User extends Authenticatable
             ->dontSubmitEmptyLogs();
     }
 
-    public function canComment(): bool
+    public function canAccessPanel(Panel $panel): bool
     {
-        // your conditional logic here
-        return false;
+        return str_ends_with($this->email, '@mvpable.com') && $this->hasVerifiedEmail();
     }
 }
