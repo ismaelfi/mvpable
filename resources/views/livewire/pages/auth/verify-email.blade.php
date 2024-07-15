@@ -51,7 +51,7 @@ new #[Layout('layouts.guest')] class extends Component
             {{ __('Resend Verification Email') }}
         </x-primary-button>
 
-        <button wire:click="logout" type="submit" class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none">
+        <button wire:click="logout" type="submit" class="text-sm underline rounded-md focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none text-base-content hover:text-base-200">
             {{ __('Log Out') }}
         </button>
     </div>

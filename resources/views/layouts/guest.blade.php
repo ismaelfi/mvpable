@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="bumblebee">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,15 +14,15 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased text-gray-900">
-        <div class="flex flex-col items-center pt-6 min-h-screen bg-gray-100 sm:justify-center sm:pt-0">
+    <body class="font-sans antialiased">
+        <div class="flex flex-col items-center pt-6 min-h-screen sm:justify-center sm:pt-0 bg-base-100">
             <div>
                 <a href="/" wire:navigate>
-                    <x-application-logo class="w-20 h-20 text-gray-500 fill-current" />
+                    <x-application-logo class="w-20 h-20 fill-current text-base-content" />
                 </a>
             </div>
 
-            <div class="overflow-hidden py-4 px-6 mt-6 w-full bg-white shadow-md sm:max-w-md sm:rounded-lg">
+            <div class="overflow-hidden py-4 px-6 mt-6 w-full shadow-md sm:max-w-md sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>

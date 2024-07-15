@@ -41,14 +41,14 @@ new #[Layout('layouts.guest')] class extends Component
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input wire:model="name" id="name" class="block mt-1 w-full" style="border-color: #f0f8ff;"  type="text" name="name" required autofocus autocomplete="name" />
+            <x-text-input wire:model="name" id="name" class="block mt-1 w-full" style="border-color: #d3d3d3;"  type="text" name="name" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="email" id="email" class="block mt-1 w-full"  style="border-color: #f0f8ff;" type="email" name="email" required autocomplete="username" />
+            <x-text-input wire:model="email" id="email" class="block mt-1 w-full"  style="border-color: #d3d3d3;" type="email" name="email" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
@@ -56,7 +56,7 @@ new #[Layout('layouts.guest')] class extends Component
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input wire:model="password" id="password" class="block mt-1 w-full" style="border-color: #f0f8ff;"
+            <x-text-input wire:model="password" id="password" class="block mt-1 w-full" style="border-color: #d3d3d3;"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
@@ -68,7 +68,7 @@ new #[Layout('layouts.guest')] class extends Component
         <div class="mt-4">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full" style="border-color: #f0f8ff;"
+            <x-text-input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full" style="border-color: #d3d3d3;"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 
@@ -76,7 +76,7 @@ new #[Layout('layouts.guest')] class extends Component
         </div>
 
         <div class="flex justify-end items-center mt-4">
-            <a class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none" href="{{ route('login') }}" wire:navigate>
+            <a class="text-sm underline rounded-md hover:text-base focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none text-base-content" href="{{ route('login') }}" wire:navigate>
                 {{ __('Already registered?') }}
             </a>
 
