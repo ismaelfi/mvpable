@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Subscriptions">
     <div class="text-sm breadcrumbs">
     <ul>
         <li><a href="{{route('dashboard')}}">{{ __('Dashboard') }}</a></li>

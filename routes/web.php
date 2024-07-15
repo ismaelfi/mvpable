@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Middleware\EnsureUserIsSubscribed;
-use App\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,10 +9,10 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {   //EnsureUserIsSubscribed::class to middleware
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
 });
 
-Route::view('profile', 'profile')
+Route::view('settings', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
