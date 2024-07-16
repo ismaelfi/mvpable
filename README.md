@@ -1,9 +1,10 @@
 
 [![MVPable – Free Complete SaaS Boilerplate](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=471097&theme=light)](https://www.producthunt.com/posts/mvpable-free-complete-saas-boilerplate?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-mvpable-free-complete-saas-boilerplate)
 
+![Dashbaord End User](public/images/demo/home-user.png)
+
 
 ![End User Subscriptions page](public/images/demo/subscription-user-light.png)
-
 
 
 ![MVPable Admin panel](public/images/demo/admin.png)
