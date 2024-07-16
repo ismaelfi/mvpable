@@ -9,6 +9,12 @@ new #[Layout('layouts.guest')] class extends Component
 {
     public LoginForm $form;
 
+    public function mount()
+    {
+        $this->form->email = 'demo@mvpable.com';
+        $this->form->password = 'password@mvp';
+    }
+
     /**
      * Handle an incoming authentication request.
      */
@@ -69,3 +75,10 @@ new #[Layout('layouts.guest')] class extends Component
         </div>
     </form>
 </div>
+
+<script>
+    document.addEventListener('livewire:initialized', () => {
+        document.getElementById('email').dispatchEvent(new Event('input'));
+        document.getElementById('password').dispatchEvent(new Event('input'));
+    });
+</script>

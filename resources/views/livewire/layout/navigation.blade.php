@@ -53,6 +53,14 @@ new class extends Component {
                         Settings
                     </a>
                 </li>
+                 <!-- Admin for demo -->
+                @if (str_ends_with(auth()->user()->email, '@mvpable.com'))
+                <li>
+                    <a href="/admin">
+                        Admin panel
+                    </a>
+                </li>
+                @endif
                 @if ($isSubscribed)
                     <li>
                         <a href="{{ route('billing-portal') }}" target="_blank">
