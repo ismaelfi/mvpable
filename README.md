@@ -2,7 +2,13 @@
 [![MVPable – Free Complete SaaS Boilerplate](https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=471097&theme=light)](https://www.producthunt.com/posts/mvpable-free-complete-saas-boilerplate?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-mvpable-free-complete-saas-boilerplate)
 
 
+![End User Subscriptions page](public/images/demo/subscription-user-light.png)
+
+
+
 ![MVPable Admin panel](public/images/demo/admin.png)
+
+
 
 
 # MVPable
@@ -50,10 +56,7 @@ MVPable is a comprehensive TALL (Tailwind CSS, Alpine.js, Laravel, Livewire) sta
 
 ### End User Features
 
-<p align="center">
-  <img src="public/images/demo/subscription-user-dark.png" alt="MVPable Dark" width="45%" />
-  <img src="public/images/demo/subscription-user-light.png" alt="MVPable Light" width="45%" />
-</p>
+![End User Settings](public/images/demo/setting-user-dark.png)
 
 - **Authentication and Authorization**
   - User registration, login, and password reset
