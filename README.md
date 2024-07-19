@@ -86,7 +86,10 @@ MVPable is a comprehensive TALL (Tailwind CSS, Alpine.js, Laravel, Livewire) sta
    ```bash
    git clone https://github.com/ismaelfi/mvpable.git
    cd mvpable
-2. **Set up the development environment:**
+2. **install dependencies:**
+   ```bash
+   composer install
+3. **Set up the development environment:**
    ```bash
    php artisan dev:setup
 
