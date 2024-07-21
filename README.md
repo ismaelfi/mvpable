@@ -103,6 +103,14 @@ This project is open-source and available under the [MIT license](https://openso
 ## Acknowledgements
 MVPable is inspired by various open-source projects and built with love by the community. Special thanks to the creators and maintainers of Tailwind CSS, Alpine.js, Laravel, and Livewire.
 
+## Support
+
+If you find this project helpful, you can support its development in the following ways:
+
+- **Buy me a coffee:** [Buy Me a Coffee](https://buymeacoffee.com/ismaelfi) or though [Revolut](https://revolut.me/ismaelfi)
+- **Consulting:** Whether it's an MVP, website, or SaaS, I can help you launch your idea, fast. [Schedule a Consultation](https://cal.com/mvpable)
+- **Share your creations:** Post what you've built using MVPable and mention me !
+
 ## Roadmap
 
 - [ ] Create blog post with SEO
@@ -110,3 +118,4 @@ MVPable is inspired by various open-source projects and built with love by the c
 - [ ] Improve documentation and tutorials
 - [ ] Enhance the admin panel with more features
 - [ ] Add support for more payment gateways (lemonsqueezy)
+      
