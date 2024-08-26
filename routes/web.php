@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Middleware\EnsureUserIsSubscribed;
 use Illuminate\Support\Facades\Route;
@@ -27,5 +28,10 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/sitemap.xml', function () {
     return response()->file(public_path('sitemap.xml'));
 });
+
+Route::get('/auth/{provider}/redirect', [SocialiteController::class, 'redirect'])
+    ->name('socialite.redirect');
+Route::get('/auth/{provider}/callback', [SocialiteController::class, 'callback'])
+    ->name('socialite.callback');
 
 require __DIR__.'/auth.php';
