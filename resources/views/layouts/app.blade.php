@@ -55,8 +55,8 @@
             const htmlElement = document.documentElement;
 
             // themes
-            const lightTheme = 'bumblebee';
-            const darkTheme = 'forest';
+            const lightTheme = 'light';
+            const darkTheme = 'dark';
 
             const currentTheme = localStorage.getItem('theme') || lightTheme;
             htmlElement.setAttribute('data-theme', currentTheme);
@@ -73,6 +73,8 @@
             });
         });
         </script>
+
         @include('cookie-consent::index')
+        <script>
     </body>
 </html>
