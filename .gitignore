@@ -19,3 +19,8 @@ yarn-error.log
 /.idea
 /.vscode
 /.local
+
+# Filament generated assets
+/public/css/filament
+/public/js/filament
+/public/css/filament-icons
