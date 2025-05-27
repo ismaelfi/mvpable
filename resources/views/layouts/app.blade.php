@@ -1,7 +1,7 @@
 @props(['title' => null])
 
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="{{ session('theme', 'light') }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +21,7 @@
     <body class="font-sans antialiased">
 
         <div class="min-h-screen bg-base-100">
+            <x-theme-switcher.floating />
 
             <livewire:layout.navigation />
 
@@ -59,19 +60,30 @@
             const lightTheme = 'light';
             const darkTheme = 'dark';
 
+            // Get theme from localStorage, honor the full 30+ themes
             const currentTheme = localStorage.getItem('theme') || lightTheme;
             htmlElement.setAttribute('data-theme', currentTheme);
-            themeSwitcher.checked = currentTheme === darkTheme;
-
-            themeSwitcher.addEventListener('change', (e) => {
-                if (e.target.checked) {
-                    htmlElement.setAttribute('data-theme', darkTheme);
-                    localStorage.setItem('theme', darkTheme);
-                } else {
-                    htmlElement.setAttribute('data-theme', lightTheme);
-                    localStorage.setItem('theme', lightTheme);
-                }
-            });
+            
+            // Only set the basic switcher to dark if it's the dark theme
+            if (themeSwitcher) {
+                themeSwitcher.checked = currentTheme === darkTheme;
+                
+                themeSwitcher.addEventListener('change', (e) => {
+                    const newTheme = e.target.checked ? darkTheme : lightTheme;
+                    htmlElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    
+                    // Update session on the server for SSR consistency
+                    fetch('/theme/update', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        },
+                        body: JSON.stringify({ theme: newTheme })
+                    });
+                });
+            }
         });
         </script>
 

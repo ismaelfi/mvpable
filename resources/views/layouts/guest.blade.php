@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="{{ session('theme', 'light') }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +16,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="flex flex-col items-center pt-6 min-h-screen sm:justify-center sm:pt-0 bg-base-100">
+            <x-theme-switcher.floating />
             <div>
                 <a href="/" wire:navigate>
                     <x-application-logo class="w-20 h-20 fill-current text-base-content" />
@@ -27,5 +28,13 @@
             </div>
         </div>
         @include('cookie-consent::index')
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const htmlElement = document.documentElement;
+                const currentTheme = localStorage.getItem('theme') || 'light';
+                htmlElement.setAttribute('data-theme', currentTheme);
+            });
+        </script>
     </body>
 </html>

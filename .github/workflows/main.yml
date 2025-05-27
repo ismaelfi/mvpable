@@ -60,5 +60,5 @@ jobs:
     - name: Run Pint
       run: ./vendor/bin/pint
 
-    - name: Run PHPUnit tests
-      run: vendor/bin/phpunit
+    - name: Run Pest tests
+      run: ./vendor/bin/pest

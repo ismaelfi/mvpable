@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\ThemeController;
 use App\Http\Middleware\EnsureUserIsSubscribed;
 use Illuminate\Support\Facades\Route;
 
@@ -9,7 +10,7 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::middleware(['auth'])->group(function () {   //EnsureUserIsSubscribed::class to middleware
+Route::middleware(['auth'])->group(function () {   // EnsureUserIsSubscribed::class to middleware
     Route::view('/dashboard', 'dashboard')->name('dashboard');
 });
 
@@ -28,6 +29,8 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/sitemap.xml', function () {
     return response()->file(public_path('sitemap.xml'));
 });
+
+Route::post('/theme/update', [ThemeController::class, 'update'])->name('theme.update');
 
 Route::get('/auth/{provider}/redirect', [SocialiteController::class, 'redirect'])
     ->name('socialite.redirect');
